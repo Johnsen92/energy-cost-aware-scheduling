@@ -1,0 +1,45 @@
+\section{Model}
+
+\subsection{Formulation}
+
+We added an artificial root node $v_0$ to our graph and edges $(v0,i) : i \in V$  from the root node to every other node with weight $0$:
+
+\begin{itemize}
+	\item $T$ Set of tasks. Artificial 0-Task added for which resource usage is 0.
+	\item $S$ Set of servers
+	\item $P$ Ordered set of time slots
+\end{itemize}
+\subsection{Constants}
+
+\begin{itemize}
+	\item $ct_{i}$ : CPU requirement for task $i \in T$ 
+	\item $mt_{i}$ : Memory requirement for task $i \in T$ 
+	\item $ot_{i}$ : I/O requirement for task $i \in T$
+	\item $st_{i}$ : Earliest start time of task $i \in T$
+	\item $et_{i}$ : Latest end time for task $i \in T$
+	\item $dt_{i}$ : Duration of task $i \in T$
+	
+	\item $cs_{j}$ : CPU capacity of server $j \in S$
+	\item $ms_{j}$ : Memory capacity of server $j \in S$
+	\item $os_{j}$ : I/O capacity of server $j \in S$
+\end{itemize}
+
+\subsection{Variables}
+
+\begin{itemize}
+	\item $x_{sp}$ : Variable which indicates which tasks run on which server in which timeslot. An empty set indicates that no task is running on that server.
+\end{itemize}
+
+\subsection{Domain Constraints}
+\[\forall s \in S : \forall p \in P : x_{sp} \in \mathcal{P}(T) \addtag \]
+
+\subsection{Constraints}
+\[\forall s \in S : \forall p \in P : \sum_{i \in x_{sp}} ct_{i} \leq cs_{p} \addtag \]
+\[\forall s \in S : \forall p \in P : \sum_{i \in x_{sp}} mt_{i} \leq ms_{p} \addtag \]
+\[\forall s \in S : \forall p \in P : \sum_{i \in x_{sp}} ot_{i} \leq os_{p} \addtag \]
+%\[\forall e = \{i,j\} \in V' : x_e = y_{ij} + y_{ji} \addtag \]
+
+
+\subsection{Objective}
+
+\[ min \sum_{e \in E}w_ex_e \]

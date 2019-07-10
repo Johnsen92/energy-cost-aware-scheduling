@@ -1,0 +1,7 @@
+obj/ECAS.o: src/ECAS.cpp src/ECAS.h src/Tools.h
+obj/Tools.o: src/Tools.cpp src/Tools.h
+obj/Main.o: src/Main.cpp src/Tools.h src/ECAS.h src/Instance.cpp \
+  src/Machine.cpp src/Task.cpp
+obj/Instance.o: src/Task.cpp src/Machine.cpp src/Instance.h
+obj/Machine.o: src/Machine.cpp src/Machine.h
+obj/Task.o: src/Task.cpp src/Task.h

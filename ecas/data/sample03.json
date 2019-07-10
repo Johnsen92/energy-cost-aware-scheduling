@@ -1,0 +1,1520 @@
+{
+    "time_resolution": 5,
+    "resources": 3,
+    "machines": [
+        {
+            "id": 0,
+            "idle_consumption": 150,
+            "power_up_cost": 0.1,
+            "power_down_cost": 0.1,
+            "resource_capacities": [
+                2506,
+                2406,
+                2460
+            ]
+        },
+        {
+            "id": 1,
+            "idle_consumption": 120,
+            "power_up_cost": 0.1,
+            "power_down_cost": 0.1,
+            "resource_capacities": [
+                2448,
+                2395,
+                2533
+            ]
+        }
+    ],
+    "tasks": [
+        {
+            "id": 0,
+            "earliest_start_time": 4,
+            "latest_end_time": 288,
+            "duration": 30,
+            "power_consumption": 609.6,
+            "resource_usage": [
+                1282,
+                2092,
+                2174
+            ]
+        },
+        {
+            "id": 1,
+            "earliest_start_time": 0,
+            "latest_end_time": 68,
+            "duration": 3,
+            "power_consumption": 55.47,
+            "resource_usage": [
+                175,
+                30,
+                30
+            ]
+        },
+        {
+            "id": 2,
+            "earliest_start_time": 3,
+            "latest_end_time": 233,
+            "duration": 126,
+            "power_consumption": 65.29,
+            "resource_usage": [
+                110,
+                92,
+                622
+            ]
+        },
+        {
+            "id": 3,
+            "earliest_start_time": 43,
+            "latest_end_time": 280,
+            "duration": 6,
+            "power_consumption": 77.15,
+            "resource_usage": [
+                128,
+                136,
+                708
+            ]
+        },
+        {
+            "id": 4,
+            "earliest_start_time": 25,
+            "latest_end_time": 196,
+            "duration": 2,
+            "power_consumption": 144.29,
+            "resource_usage": [
+                239,
+                223,
+                1374
+            ]
+        },
+        {
+            "id": 5,
+            "earliest_start_time": 141,
+            "latest_end_time": 225,
+            "duration": 3,
+            "power_consumption": 142.71,
+            "resource_usage": [
+                214,
+                959,
+                408
+            ]
+        },
+        {
+            "id": 6,
+            "earliest_start_time": 0,
+            "latest_end_time": 46,
+            "duration": 1,
+            "power_consumption": 250.01,
+            "resource_usage": [
+                703,
+                520,
+                158
+            ]
+        },
+        {
+            "id": 7,
+            "earliest_start_time": 38,
+            "latest_end_time": 268,
+            "duration": 16,
+            "power_consumption": 80.65,
+            "resource_usage": [
+                138,
+                130,
+                729
+            ]
+        },
+        {
+            "id": 8,
+            "earliest_start_time": 0,
+            "latest_end_time": 253,
+            "duration": 2,
+            "power_consumption": 478.86,
+            "resource_usage": [
+                871,
+                1970,
+                2170
+            ]
+        },
+        {
+            "id": 9,
+            "earliest_start_time": 163,
+            "latest_end_time": 287,
+            "duration": 56,
+            "power_consumption": 45.1,
+            "resource_usage": [
+                81,
+                72,
+                382
+            ]
+        },
+        {
+            "id": 10,
+            "earliest_start_time": 1,
+            "latest_end_time": 161,
+            "duration": 102,
+            "power_consumption": 260.55,
+            "resource_usage": [
+                744,
+                458,
+                211
+            ]
+        },
+        {
+            "id": 11,
+            "earliest_start_time": 34,
+            "latest_end_time": 211,
+            "duration": 19,
+            "power_consumption": 112.69,
+            "resource_usage": [
+                356,
+                62,
+                56
+            ]
+        },
+        {
+            "id": 12,
+            "earliest_start_time": 108,
+            "latest_end_time": 221,
+            "duration": 17,
+            "power_consumption": 18.03,
+            "resource_usage": [
+                57,
+                9,
+                10
+            ]
+        },
+        {
+            "id": 13,
+            "earliest_start_time": 11,
+            "latest_end_time": 252,
+            "duration": 140,
+            "power_consumption": 28.89,
+            "resource_usage": [
+                46,
+                136,
+                151
+            ]
+        },
+        {
+            "id": 14,
+            "earliest_start_time": 6,
+            "latest_end_time": 183,
+            "duration": 104,
+            "power_consumption": 22.47,
+            "resource_usage": [
+                30,
+                189,
+                33
+            ]
+        },
+        {
+            "id": 15,
+            "earliest_start_time": 264,
+            "latest_end_time": 287,
+            "duration": 12,
+            "power_consumption": 236.4,
+            "resource_usage": [
+                743,
+                144,
+                123
+            ]
+        },
+        {
+            "id": 16,
+            "earliest_start_time": 42,
+            "latest_end_time": 142,
+            "duration": 62,
+            "power_consumption": 106.08,
+            "resource_usage": [
+                150,
+                850,
+                161
+            ]
+        },
+        {
+            "id": 17,
+            "earliest_start_time": 159,
+            "latest_end_time": 207,
+            "duration": 23,
+            "power_consumption": 140.92,
+            "resource_usage": [
+                443,
+                77,
+                86
+            ]
+        },
+        {
+            "id": 18,
+            "earliest_start_time": 153,
+            "latest_end_time": 271,
+            "duration": 55,
+            "power_consumption": 72.26,
+            "resource_usage": [
+                125,
+                121,
+                637
+            ]
+        },
+        {
+            "id": 19,
+            "earliest_start_time": 181,
+            "latest_end_time": 258,
+            "duration": 2,
+            "power_consumption": 44.59,
+            "resource_usage": [
+                71,
+                82,
+                425
+            ]
+        },
+        {
+            "id": 20,
+            "earliest_start_time": 186,
+            "latest_end_time": 279,
+            "duration": 20,
+            "power_consumption": 55.0,
+            "resource_usage": [
+                171,
+                38,
+                35
+            ]
+        },
+        {
+            "id": 21,
+            "earliest_start_time": 2,
+            "latest_end_time": 62,
+            "duration": 6,
+            "power_consumption": 58.99,
+            "resource_usage": [
+                88,
+                449,
+                93
+            ]
+        },
+        {
+            "id": 22,
+            "earliest_start_time": 46,
+            "latest_end_time": 176,
+            "duration": 24,
+            "power_consumption": 42.97,
+            "resource_usage": [
+                72,
+                72,
+                395
+            ]
+        },
+        {
+            "id": 23,
+            "earliest_start_time": 6,
+            "latest_end_time": 201,
+            "duration": 71,
+            "power_consumption": 46.13,
+            "resource_usage": [
+                143,
+                34,
+                29
+            ]
+        },
+        {
+            "id": 24,
+            "earliest_start_time": 84,
+            "latest_end_time": 141,
+            "duration": 2,
+            "power_consumption": 17.64,
+            "resource_usage": [
+                28,
+                33,
+                168
+            ]
+        },
+        {
+            "id": 25,
+            "earliest_start_time": 129,
+            "latest_end_time": 271,
+            "duration": 124,
+            "power_consumption": 19.12,
+            "resource_usage": [
+                31,
+                32,
+                183
+            ]
+        },
+        {
+            "id": 26,
+            "earliest_start_time": 74,
+            "latest_end_time": 281,
+            "duration": 56,
+            "power_consumption": 52.12,
+            "resource_usage": [
+                89,
+                97,
+                453
+            ]
+        },
+        {
+            "id": 27,
+            "earliest_start_time": 172,
+            "latest_end_time": 210,
+            "duration": 9,
+            "power_consumption": 95.86,
+            "resource_usage": [
+                142,
+                741,
+                141
+            ]
+        },
+        {
+            "id": 28,
+            "earliest_start_time": 12,
+            "latest_end_time": 218,
+            "duration": 43,
+            "power_consumption": 68.79,
+            "resource_usage": [
+                103,
+                418,
+                264
+            ]
+        },
+        {
+            "id": 29,
+            "earliest_start_time": 206,
+            "latest_end_time": 255,
+            "duration": 11,
+            "power_consumption": 122.23,
+            "resource_usage": [
+                199,
+                211,
+                1155
+            ]
+        },
+        {
+            "id": 30,
+            "earliest_start_time": 8,
+            "latest_end_time": 269,
+            "duration": 96,
+            "power_consumption": 91.17,
+            "resource_usage": [
+                160,
+                133,
+                817
+            ]
+        },
+        {
+            "id": 31,
+            "earliest_start_time": 131,
+            "latest_end_time": 284,
+            "duration": 91,
+            "power_consumption": 89.1,
+            "resource_usage": [
+                136,
+                148,
+                914
+            ]
+        },
+        {
+            "id": 32,
+            "earliest_start_time": 145,
+            "latest_end_time": 209,
+            "duration": 29,
+            "power_consumption": 226.48,
+            "resource_usage": [
+                358,
+                1505,
+                544
+            ]
+        },
+        {
+            "id": 33,
+            "earliest_start_time": 14,
+            "latest_end_time": 248,
+            "duration": 70,
+            "power_consumption": 47.22,
+            "resource_usage": [
+                147,
+                29,
+                34
+            ]
+        },
+        {
+            "id": 34,
+            "earliest_start_time": 137,
+            "latest_end_time": 206,
+            "duration": 23,
+            "power_consumption": 243.38,
+            "resource_usage": [
+                403,
+                1533,
+                583
+            ]
+        },
+        {
+            "id": 35,
+            "earliest_start_time": 13,
+            "latest_end_time": 279,
+            "duration": 130,
+            "power_consumption": 165.24,
+            "resource_usage": [
+                380,
+                703,
+                158
+            ]
+        },
+        {
+            "id": 36,
+            "earliest_start_time": 3,
+            "latest_end_time": 232,
+            "duration": 12,
+            "power_consumption": 81.31,
+            "resource_usage": [
+                120,
+                613,
+                146
+            ]
+        },
+        {
+            "id": 37,
+            "earliest_start_time": 175,
+            "latest_end_time": 235,
+            "duration": 2,
+            "power_consumption": 114.96,
+            "resource_usage": [
+                200,
+                216,
+                970
+            ]
+        },
+        {
+            "id": 38,
+            "earliest_start_time": 147,
+            "latest_end_time": 288,
+            "duration": 79,
+            "power_consumption": 86.26,
+            "resource_usage": [
+                273,
+                45,
+                43
+            ]
+        },
+        {
+            "id": 39,
+            "earliest_start_time": 76,
+            "latest_end_time": 256,
+            "duration": 97,
+            "power_consumption": 263.9,
+            "resource_usage": [
+                826,
+                147,
+                182
+            ]
+        },
+        {
+            "id": 40,
+            "earliest_start_time": 33,
+            "latest_end_time": 245,
+            "duration": 6,
+            "power_consumption": 62.58,
+            "resource_usage": [
+                109,
+                99,
+                555
+            ]
+        },
+        {
+            "id": 41,
+            "earliest_start_time": 197,
+            "latest_end_time": 276,
+            "duration": 10,
+            "power_consumption": 9.77,
+            "resource_usage": [
+                17,
+                18,
+                83
+            ]
+        },
+        {
+            "id": 42,
+            "earliest_start_time": 13,
+            "latest_end_time": 272,
+            "duration": 54,
+            "power_consumption": 72.71,
+            "resource_usage": [
+                110,
+                420,
+                304
+            ]
+        },
+        {
+            "id": 43,
+            "earliest_start_time": 2,
+            "latest_end_time": 119,
+            "duration": 71,
+            "power_consumption": 63.07,
+            "resource_usage": [
+                197,
+                40,
+                39
+            ]
+        },
+        {
+            "id": 44,
+            "earliest_start_time": 117,
+            "latest_end_time": 287,
+            "duration": 79,
+            "power_consumption": 145.06,
+            "resource_usage": [
+                456,
+                87,
+                77
+            ]
+        },
+        {
+            "id": 45,
+            "earliest_start_time": 29,
+            "latest_end_time": 186,
+            "duration": 38,
+            "power_consumption": 21.87,
+            "resource_usage": [
+                34,
+                161,
+                33
+            ]
+        },
+        {
+            "id": 46,
+            "earliest_start_time": 117,
+            "latest_end_time": 288,
+            "duration": 12,
+            "power_consumption": 50.63,
+            "resource_usage": [
+                157,
+                33,
+                38
+            ]
+        },
+        {
+            "id": 47,
+            "earliest_start_time": 55,
+            "latest_end_time": 256,
+            "duration": 23,
+            "power_consumption": 97.06,
+            "resource_usage": [
+                303,
+                59,
+                65
+            ]
+        },
+        {
+            "id": 48,
+            "earliest_start_time": 3,
+            "latest_end_time": 273,
+            "duration": 39,
+            "power_consumption": 40.15,
+            "resource_usage": [
+                55,
+                330,
+                61
+            ]
+        },
+        {
+            "id": 49,
+            "earliest_start_time": 93,
+            "latest_end_time": 214,
+            "duration": 18,
+            "power_consumption": 59.27,
+            "resource_usage": [
+                103,
+                86,
+                539
+            ]
+        },
+        {
+            "id": 50,
+            "earliest_start_time": 163,
+            "latest_end_time": 259,
+            "duration": 71,
+            "power_consumption": 105.1,
+            "resource_usage": [
+                330,
+                58,
+                66
+            ]
+        },
+        {
+            "id": 51,
+            "earliest_start_time": 27,
+            "latest_end_time": 239,
+            "duration": 18,
+            "power_consumption": 111.14,
+            "resource_usage": [
+                346,
+                73,
+                73
+            ]
+        },
+        {
+            "id": 52,
+            "earliest_start_time": 140,
+            "latest_end_time": 283,
+            "duration": 18,
+            "power_consumption": 238.4,
+            "resource_usage": [
+                751,
+                132,
+                132
+            ]
+        },
+        {
+            "id": 53,
+            "earliest_start_time": 9,
+            "latest_end_time": 214,
+            "duration": 14,
+            "power_consumption": 39.96,
+            "resource_usage": [
+                65,
+                283,
+                57
+            ]
+        },
+        {
+            "id": 54,
+            "earliest_start_time": 1,
+            "latest_end_time": 68,
+            "duration": 3,
+            "power_consumption": 238.45,
+            "resource_usage": [
+                673,
+                470,
+                172
+            ]
+        },
+        {
+            "id": 55,
+            "earliest_start_time": 179,
+            "latest_end_time": 257,
+            "duration": 11,
+            "power_consumption": 0.73,
+            "resource_usage": [
+                1,
+                6,
+                1
+            ]
+        },
+        {
+            "id": 56,
+            "earliest_start_time": 3,
+            "latest_end_time": 196,
+            "duration": 6,
+            "power_consumption": 70.64,
+            "resource_usage": [
+                113,
+                447,
+                194
+            ]
+        },
+        {
+            "id": 57,
+            "earliest_start_time": 156,
+            "latest_end_time": 212,
+            "duration": 30,
+            "power_consumption": 157.84,
+            "resource_usage": [
+                347,
+                734,
+                169
+            ]
+        },
+        {
+            "id": 58,
+            "earliest_start_time": 39,
+            "latest_end_time": 288,
+            "duration": 58,
+            "power_consumption": 302.54,
+            "resource_usage": [
+                581,
+                1698,
+                476
+            ]
+        },
+        {
+            "id": 59,
+            "earliest_start_time": 167,
+            "latest_end_time": 264,
+            "duration": 9,
+            "power_consumption": 0.73,
+            "resource_usage": [
+                1,
+                6,
+                1
+            ]
+        },
+        {
+            "id": 60,
+            "earliest_start_time": 195,
+            "latest_end_time": 273,
+            "duration": 28,
+            "power_consumption": 83.15,
+            "resource_usage": [
+                119,
+                663,
+                121
+            ]
+        },
+        {
+            "id": 61,
+            "earliest_start_time": 3,
+            "latest_end_time": 154,
+            "duration": 124,
+            "power_consumption": 72.07,
+            "resource_usage": [
+                115,
+                122,
+                701
+            ]
+        },
+        {
+            "id": 62,
+            "earliest_start_time": 9,
+            "latest_end_time": 90,
+            "duration": 14,
+            "power_consumption": 28.31,
+            "resource_usage": [
+                46,
+                123,
+                157
+            ]
+        },
+        {
+            "id": 63,
+            "earliest_start_time": 0,
+            "latest_end_time": 258,
+            "duration": 82,
+            "power_consumption": 79.86,
+            "resource_usage": [
+                252,
+                43,
+                43
+            ]
+        },
+        {
+            "id": 64,
+            "earliest_start_time": 45,
+            "latest_end_time": 253,
+            "duration": 117,
+            "power_consumption": 5.04,
+            "resource_usage": [
+                8,
+                36,
+                8
+            ]
+        },
+        {
+            "id": 65,
+            "earliest_start_time": 91,
+            "latest_end_time": 224,
+            "duration": 10,
+            "power_consumption": 85.21,
+            "resource_usage": [
+                141,
+                150,
+                785
+            ]
+        },
+        {
+            "id": 66,
+            "earliest_start_time": 9,
+            "latest_end_time": 274,
+            "duration": 105,
+            "power_consumption": 115.11,
+            "resource_usage": [
+                366,
+                53,
+                56
+            ]
+        },
+        {
+            "id": 67,
+            "earliest_start_time": 117,
+            "latest_end_time": 255,
+            "duration": 32,
+            "power_consumption": 132.96,
+            "resource_usage": [
+                190,
+                920,
+                406
+            ]
+        },
+        {
+            "id": 68,
+            "earliest_start_time": 15,
+            "latest_end_time": 236,
+            "duration": 5,
+            "power_consumption": 5.46,
+            "resource_usage": [
+                9,
+                38,
+                8
+            ]
+        },
+        {
+            "id": 69,
+            "earliest_start_time": 0,
+            "latest_end_time": 275,
+            "duration": 84,
+            "power_consumption": 39.26,
+            "resource_usage": [
+                123,
+                24,
+                23
+            ]
+        },
+        {
+            "id": 70,
+            "earliest_start_time": 6,
+            "latest_end_time": 158,
+            "duration": 66,
+            "power_consumption": 75.53,
+            "resource_usage": [
+                239,
+                36,
+                43
+            ]
+        },
+        {
+            "id": 71,
+            "earliest_start_time": 0,
+            "latest_end_time": 185,
+            "duration": 23,
+            "power_consumption": 98.23,
+            "resource_usage": [
+                309,
+                54,
+                58
+            ]
+        },
+        {
+            "id": 72,
+            "earliest_start_time": 158,
+            "latest_end_time": 216,
+            "duration": 53,
+            "power_consumption": 138.45,
+            "resource_usage": [
+                212,
+                967,
+                310
+            ]
+        },
+        {
+            "id": 73,
+            "earliest_start_time": 143,
+            "latest_end_time": 251,
+            "duration": 19,
+            "power_consumption": 132.75,
+            "resource_usage": [
+                205,
+                838,
+                419
+            ]
+        },
+        {
+            "id": 74,
+            "earliest_start_time": 123,
+            "latest_end_time": 272,
+            "duration": 52,
+            "power_consumption": 29.81,
+            "resource_usage": [
+                84,
+                59,
+                22
+            ]
+        },
+        {
+            "id": 75,
+            "earliest_start_time": 89,
+            "latest_end_time": 284,
+            "duration": 31,
+            "power_consumption": 18.41,
+            "resource_usage": [
+                58,
+                11,
+                9
+            ]
+        },
+        {
+            "id": 76,
+            "earliest_start_time": 101,
+            "latest_end_time": 263,
+            "duration": 26,
+            "power_consumption": 90.31,
+            "resource_usage": [
+                139,
+                147,
+                923
+            ]
+        },
+        {
+            "id": 77,
+            "earliest_start_time": 21,
+            "latest_end_time": 118,
+            "duration": 5,
+            "power_consumption": 37.17,
+            "resource_usage": [
+                59,
+                270,
+                53
+            ]
+        },
+        {
+            "id": 78,
+            "earliest_start_time": 9,
+            "latest_end_time": 212,
+            "duration": 46,
+            "power_consumption": 107.4,
+            "resource_usage": [
+                172,
+                774,
+                152
+            ]
+        },
+        {
+            "id": 79,
+            "earliest_start_time": 46,
+            "latest_end_time": 286,
+            "duration": 17,
+            "power_consumption": 144.25,
+            "resource_usage": [
+                316,
+                673,
+                159
+            ]
+        },
+        {
+            "id": 80,
+            "earliest_start_time": 48,
+            "latest_end_time": 284,
+            "duration": 10,
+            "power_consumption": 73.12,
+            "resource_usage": [
+                120,
+                119,
+                695
+            ]
+        },
+        {
+            "id": 81,
+            "earliest_start_time": 139,
+            "latest_end_time": 263,
+            "duration": 24,
+            "power_consumption": 78.26,
+            "resource_usage": [
+                246,
+                46,
+                43
+            ]
+        },
+        {
+            "id": 82,
+            "earliest_start_time": 23,
+            "latest_end_time": 216,
+            "duration": 129,
+            "power_consumption": 36.97,
+            "resource_usage": [
+                57,
+                273,
+                58
+            ]
+        },
+        {
+            "id": 83,
+            "earliest_start_time": 85,
+            "latest_end_time": 279,
+            "duration": 22,
+            "power_consumption": 205.36,
+            "resource_usage": [
+                500,
+                741,
+                201
+            ]
+        },
+        {
+            "id": 84,
+            "earliest_start_time": 97,
+            "latest_end_time": 285,
+            "duration": 66,
+            "power_consumption": 33.54,
+            "resource_usage": [
+                57,
+                54,
+                306
+            ]
+        },
+        {
+            "id": 85,
+            "earliest_start_time": 2,
+            "latest_end_time": 172,
+            "duration": 139,
+            "power_consumption": 9.0,
+            "resource_usage": [
+                28,
+                6,
+                6
+            ]
+        },
+        {
+            "id": 86,
+            "earliest_start_time": 15,
+            "latest_end_time": 155,
+            "duration": 74,
+            "power_consumption": 69.68,
+            "resource_usage": [
+                220,
+                36,
+                39
+            ]
+        },
+        {
+            "id": 87,
+            "earliest_start_time": 0,
+            "latest_end_time": 236,
+            "duration": 4,
+            "power_consumption": 165.61,
+            "resource_usage": [
+                242,
+                1140,
+                477
+            ]
+        },
+        {
+            "id": 88,
+            "earliest_start_time": 1,
+            "latest_end_time": 255,
+            "duration": 95,
+            "power_consumption": 65.35,
+            "resource_usage": [
+                103,
+                123,
+                626
+            ]
+        },
+        {
+            "id": 89,
+            "earliest_start_time": 101,
+            "latest_end_time": 287,
+            "duration": 108,
+            "power_consumption": 208.04,
+            "resource_usage": [
+                654,
+                123,
+                113
+            ]
+        },
+        {
+            "id": 90,
+            "earliest_start_time": 22,
+            "latest_end_time": 265,
+            "duration": 152,
+            "power_consumption": 201.28,
+            "resource_usage": [
+                624,
+                140,
+                139
+            ]
+        },
+        {
+            "id": 91,
+            "earliest_start_time": 5,
+            "latest_end_time": 248,
+            "duration": 118,
+            "power_consumption": 10.33,
+            "resource_usage": [
+                18,
+                16,
+                92
+            ]
+        },
+        {
+            "id": 92,
+            "earliest_start_time": 0,
+            "latest_end_time": 170,
+            "duration": 2,
+            "power_consumption": 482.76,
+            "resource_usage": [
+                1518,
+                271,
+                281
+            ]
+        },
+        {
+            "id": 93,
+            "earliest_start_time": 38,
+            "latest_end_time": 266,
+            "duration": 60,
+            "power_consumption": 38.25,
+            "resource_usage": [
+                120,
+                21,
+                25
+            ]
+        },
+        {
+            "id": 94,
+            "earliest_start_time": 118,
+            "latest_end_time": 288,
+            "duration": 69,
+            "power_consumption": 117.43,
+            "resource_usage": [
+                198,
+                200,
+                1066
+            ]
+        },
+        {
+            "id": 95,
+            "earliest_start_time": 6,
+            "latest_end_time": 170,
+            "duration": 133,
+            "power_consumption": 269.47,
+            "resource_usage": [
+                844,
+                158,
+                170
+            ]
+        },
+        {
+            "id": 96,
+            "earliest_start_time": 4,
+            "latest_end_time": 148,
+            "duration": 113,
+            "power_consumption": 34.05,
+            "resource_usage": [
+                58,
+                52,
+                314
+            ]
+        },
+        {
+            "id": 97,
+            "earliest_start_time": 1,
+            "latest_end_time": 201,
+            "duration": 107,
+            "power_consumption": 39.39,
+            "resource_usage": [
+                54,
+                324,
+                59
+            ]
+        },
+        {
+            "id": 98,
+            "earliest_start_time": 46,
+            "latest_end_time": 275,
+            "duration": 80,
+            "power_consumption": 41.14,
+            "resource_usage": [
+                68,
+                68,
+                386
+            ]
+        },
+        {
+            "id": 99,
+            "earliest_start_time": 95,
+            "latest_end_time": 264,
+            "duration": 85,
+            "power_consumption": 8.41,
+            "resource_usage": [
+                26,
+                6,
+                6
+            ]
+        }
+    ],
+    "energy_prices": [
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.034,
+        0.034,
+        0.034,
+        0.034,
+        0.034,
+        0.034,
+        0.03399,
+        0.03399,
+        0.03399,
+        0.03399,
+        0.03399,
+        0.03399,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03196,
+        0.03196,
+        0.03196,
+        0.03196,
+        0.03196,
+        0.03196,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03129,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.04261,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.03476,
+        0.043,
+        0.043,
+        0.043,
+        0.043,
+        0.043,
+        0.043,
+        0.04732,
+        0.04732,
+        0.04732,
+        0.04732,
+        0.04732,
+        0.04732,
+        0.08093,
+        0.08093,
+        0.08093,
+        0.08093,
+        0.08093,
+        0.08093,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.09108,
+        0.09108,
+        0.09108,
+        0.09108,
+        0.09108,
+        0.09108,
+        0.08696,
+        0.08696,
+        0.08696,
+        0.08696,
+        0.08696,
+        0.08696,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08472,
+        0.08472,
+        0.08472,
+        0.08472,
+        0.08472,
+        0.08472,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.09886,
+        0.09886,
+        0.09886,
+        0.09886,
+        0.09886,
+        0.09886,
+        0.08882,
+        0.08882,
+        0.08882,
+        0.08882,
+        0.08882,
+        0.08882,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08619,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.08587,
+        0.07767,
+        0.07767,
+        0.07767,
+        0.07767,
+        0.07767,
+        0.07767,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06492,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06126,
+        0.06126,
+        0.06126,
+        0.06126,
+        0.06126,
+        0.06126,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329,
+        0.06329
+    ]
+}

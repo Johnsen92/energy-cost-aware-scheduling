@@ -1,0 +1,920 @@
+{
+    "time_resolution": 5,
+    "resources": 3,
+    "machines": [
+        {
+            "id": 0,
+            "idle_consumption": 130,
+            "power_up_cost": 0.0,
+            "power_down_cost": 0.1,
+            "resource_capacities": [
+                2484,
+                2553,
+                2513
+            ]
+        },
+        {
+            "id": 1,
+            "idle_consumption": 120,
+            "power_up_cost": 0.1,
+            "power_down_cost": 0.1,
+            "resource_capacities": [
+                2480,
+                2517,
+                2535
+            ]
+        }
+    ],
+    "tasks": [
+        {
+            "id": 0,
+            "earliest_start_time": 161,
+            "latest_end_time": 247,
+            "duration": 10,
+            "power_consumption": 118.23,
+            "resource_usage": [
+                372,
+                80,
+                78
+            ]
+        },
+        {
+            "id": 1,
+            "earliest_start_time": 159,
+            "latest_end_time": 288,
+            "duration": 6,
+            "power_consumption": 411.11,
+            "resource_usage": [
+                645,
+                2109,
+                2065
+            ]
+        },
+        {
+            "id": 2,
+            "earliest_start_time": 102,
+            "latest_end_time": 267,
+            "duration": 54,
+            "power_consumption": 268.1,
+            "resource_usage": [
+                552,
+                1436,
+                336
+            ]
+        },
+        {
+            "id": 3,
+            "earliest_start_time": 105,
+            "latest_end_time": 285,
+            "duration": 80,
+            "power_consumption": 389.55,
+            "resource_usage": [
+                622,
+                2015,
+                1856
+            ]
+        },
+        {
+            "id": 4,
+            "earliest_start_time": 14,
+            "latest_end_time": 140,
+            "duration": 91,
+            "power_consumption": 129.41,
+            "resource_usage": [
+                414,
+                66,
+                70
+            ]
+        },
+        {
+            "id": 5,
+            "earliest_start_time": 4,
+            "latest_end_time": 276,
+            "duration": 64,
+            "power_consumption": 39.41,
+            "resource_usage": [
+                69,
+                66,
+                352
+            ]
+        },
+        {
+            "id": 6,
+            "earliest_start_time": 70,
+            "latest_end_time": 269,
+            "duration": 29,
+            "power_consumption": 5.3,
+            "resource_usage": [
+                8,
+                41,
+                8
+            ]
+        },
+        {
+            "id": 7,
+            "earliest_start_time": 45,
+            "latest_end_time": 264,
+            "duration": 48,
+            "power_consumption": 393.37,
+            "resource_usage": [
+                1254,
+                216,
+                221
+            ]
+        },
+        {
+            "id": 8,
+            "earliest_start_time": 32,
+            "latest_end_time": 283,
+            "duration": 46,
+            "power_consumption": 116.18,
+            "resource_usage": [
+                189,
+                403,
+                826
+            ]
+        },
+        {
+            "id": 9,
+            "earliest_start_time": 0,
+            "latest_end_time": 95,
+            "duration": 54,
+            "power_consumption": 15.32,
+            "resource_usage": [
+                27,
+                24,
+                138
+            ]
+        },
+        {
+            "id": 10,
+            "earliest_start_time": 92,
+            "latest_end_time": 262,
+            "duration": 23,
+            "power_consumption": 68.63,
+            "resource_usage": [
+                110,
+                127,
+                666
+            ]
+        },
+        {
+            "id": 11,
+            "earliest_start_time": 30,
+            "latest_end_time": 287,
+            "duration": 72,
+            "power_consumption": 145.88,
+            "resource_usage": [
+                457,
+                105,
+                101
+            ]
+        },
+        {
+            "id": 12,
+            "earliest_start_time": 4,
+            "latest_end_time": 147,
+            "duration": 114,
+            "power_consumption": 366.98,
+            "resource_usage": [
+                859,
+                1551,
+                358
+            ]
+        },
+        {
+            "id": 13,
+            "earliest_start_time": 21,
+            "latest_end_time": 243,
+            "duration": 47,
+            "power_consumption": 322.93,
+            "resource_usage": [
+                735,
+                1423,
+                374
+            ]
+        },
+        {
+            "id": 14,
+            "earliest_start_time": 22,
+            "latest_end_time": 232,
+            "duration": 25,
+            "power_consumption": 550.88,
+            "resource_usage": [
+                1435,
+                1656,
+                527
+            ]
+        },
+        {
+            "id": 15,
+            "earliest_start_time": 107,
+            "latest_end_time": 288,
+            "duration": 24,
+            "power_consumption": 279.47,
+            "resource_usage": [
+                565,
+                1545,
+                351
+            ]
+        },
+        {
+            "id": 16,
+            "earliest_start_time": 50,
+            "latest_end_time": 280,
+            "duration": 85,
+            "power_consumption": 18.84,
+            "resource_usage": [
+                32,
+                31,
+                176
+            ]
+        },
+        {
+            "id": 17,
+            "earliest_start_time": 122,
+            "latest_end_time": 248,
+            "duration": 24,
+            "power_consumption": 5.3,
+            "resource_usage": [
+                8,
+                41,
+                8
+            ]
+        },
+        {
+            "id": 18,
+            "earliest_start_time": 142,
+            "latest_end_time": 231,
+            "duration": 38,
+            "power_consumption": 14.81,
+            "resource_usage": [
+                25,
+                26,
+                137
+            ]
+        },
+        {
+            "id": 19,
+            "earliest_start_time": 1,
+            "latest_end_time": 176,
+            "duration": 52,
+            "power_consumption": 1.14,
+            "resource_usage": [
+                2,
+                2,
+                10
+            ]
+        },
+        {
+            "id": 20,
+            "earliest_start_time": 28,
+            "latest_end_time": 287,
+            "duration": 6,
+            "power_consumption": 133.67,
+            "resource_usage": [
+                430,
+                62,
+                65
+            ]
+        },
+        {
+            "id": 21,
+            "earliest_start_time": 69,
+            "latest_end_time": 280,
+            "duration": 61,
+            "power_consumption": 78.14,
+            "resource_usage": [
+                134,
+                114,
+                743
+            ]
+        },
+        {
+            "id": 22,
+            "earliest_start_time": 228,
+            "latest_end_time": 288,
+            "duration": 25,
+            "power_consumption": 20.0,
+            "resource_usage": [
+                33,
+                36,
+                189
+            ]
+        },
+        {
+            "id": 23,
+            "earliest_start_time": 9,
+            "latest_end_time": 205,
+            "duration": 67,
+            "power_consumption": 158.39,
+            "resource_usage": [
+                263,
+                438,
+                1256
+            ]
+        },
+        {
+            "id": 24,
+            "earliest_start_time": 173,
+            "latest_end_time": 287,
+            "duration": 84,
+            "power_consumption": 259.15,
+            "resource_usage": [
+                827,
+                138,
+                146
+            ]
+        },
+        {
+            "id": 25,
+            "earliest_start_time": 31,
+            "latest_end_time": 272,
+            "duration": 51,
+            "power_consumption": 250.5,
+            "resource_usage": [
+                794,
+                152,
+                151
+            ]
+        },
+        {
+            "id": 26,
+            "earliest_start_time": 2,
+            "latest_end_time": 181,
+            "duration": 112,
+            "power_consumption": 387.5,
+            "resource_usage": [
+                1239,
+                202,
+                208
+            ]
+        },
+        {
+            "id": 27,
+            "earliest_start_time": 5,
+            "latest_end_time": 287,
+            "duration": 93,
+            "power_consumption": 110.0,
+            "resource_usage": [
+                347,
+                70,
+                73
+            ]
+        },
+        {
+            "id": 28,
+            "earliest_start_time": 52,
+            "latest_end_time": 231,
+            "duration": 11,
+            "power_consumption": 260.71,
+            "resource_usage": [
+                833,
+                130,
+                153
+            ]
+        },
+        {
+            "id": 29,
+            "earliest_start_time": 95,
+            "latest_end_time": 285,
+            "duration": 24,
+            "power_consumption": 105.27,
+            "resource_usage": [
+                169,
+                270,
+                907
+            ]
+        },
+        {
+            "id": 30,
+            "earliest_start_time": 28,
+            "latest_end_time": 288,
+            "duration": 22,
+            "power_consumption": 180.5,
+            "resource_usage": [
+                284,
+                460,
+                1600
+            ]
+        },
+        {
+            "id": 31,
+            "earliest_start_time": 0,
+            "latest_end_time": 58,
+            "duration": 25,
+            "power_consumption": 397.92,
+            "resource_usage": [
+                643,
+                2096,
+                1786
+            ]
+        },
+        {
+            "id": 32,
+            "earliest_start_time": 81,
+            "latest_end_time": 216,
+            "duration": 79,
+            "power_consumption": 35.63,
+            "resource_usage": [
+                62,
+                61,
+                319
+            ]
+        },
+        {
+            "id": 33,
+            "earliest_start_time": 8,
+            "latest_end_time": 207,
+            "duration": 86,
+            "power_consumption": 176.2,
+            "resource_usage": [
+                291,
+                456,
+                1455
+            ]
+        },
+        {
+            "id": 34,
+            "earliest_start_time": 30,
+            "latest_end_time": 274,
+            "duration": 88,
+            "power_consumption": 78.75,
+            "resource_usage": [
+                128,
+                141,
+                759
+            ]
+        },
+        {
+            "id": 35,
+            "earliest_start_time": 158,
+            "latest_end_time": 247,
+            "duration": 27,
+            "power_consumption": 172.4,
+            "resource_usage": [
+                549,
+                102,
+                90
+            ]
+        },
+        {
+            "id": 36,
+            "earliest_start_time": 0,
+            "latest_end_time": 161,
+            "duration": 25,
+            "power_consumption": 131.56,
+            "resource_usage": [
+                422,
+                62,
+                71
+            ]
+        },
+        {
+            "id": 37,
+            "earliest_start_time": 40,
+            "latest_end_time": 288,
+            "duration": 89,
+            "power_consumption": 133.54,
+            "resource_usage": [
+                425,
+                70,
+                85
+            ]
+        },
+        {
+            "id": 38,
+            "earliest_start_time": 11,
+            "latest_end_time": 265,
+            "duration": 78,
+            "power_consumption": 1.14,
+            "resource_usage": [
+                2,
+                2,
+                10
+            ]
+        },
+        {
+            "id": 39,
+            "earliest_start_time": 16,
+            "latest_end_time": 274,
+            "duration": 18,
+            "power_consumption": 77.34,
+            "resource_usage": [
+                140,
+                142,
+                640
+            ]
+        },
+        {
+            "id": 40,
+            "earliest_start_time": 6,
+            "latest_end_time": 183,
+            "duration": 75,
+            "power_consumption": 14.83,
+            "resource_usage": [
+                27,
+                25,
+                125
+            ]
+        },
+        {
+            "id": 41,
+            "earliest_start_time": 71,
+            "latest_end_time": 172,
+            "duration": 39,
+            "power_consumption": 190.46,
+            "resource_usage": [
+                304,
+                1416,
+                262
+            ]
+        },
+        {
+            "id": 42,
+            "earliest_start_time": 84,
+            "latest_end_time": 230,
+            "duration": 21,
+            "power_consumption": 97.97,
+            "resource_usage": [
+                157,
+                304,
+                767
+            ]
+        },
+        {
+            "id": 43,
+            "earliest_start_time": 263,
+            "latest_end_time": 288,
+            "duration": 22,
+            "power_consumption": 262.32,
+            "resource_usage": [
+                836,
+                140,
+                155
+            ]
+        },
+        {
+            "id": 44,
+            "earliest_start_time": 80,
+            "latest_end_time": 224,
+            "duration": 40,
+            "power_consumption": 126.75,
+            "resource_usage": [
+                209,
+                452,
+                863
+            ]
+        },
+        {
+            "id": 45,
+            "earliest_start_time": 1,
+            "latest_end_time": 230,
+            "duration": 177,
+            "power_consumption": 364.95,
+            "resource_usage": [
+                1158,
+                219,
+                215
+            ]
+        },
+        {
+            "id": 46,
+            "earliest_start_time": 27,
+            "latest_end_time": 183,
+            "duration": 46,
+            "power_consumption": 202.72,
+            "resource_usage": [
+                359,
+                1351,
+                265
+            ]
+        },
+        {
+            "id": 47,
+            "earliest_start_time": 4,
+            "latest_end_time": 131,
+            "duration": 17,
+            "power_consumption": 317.61,
+            "resource_usage": [
+                559,
+                1737,
+                1009
+            ]
+        },
+        {
+            "id": 48,
+            "earliest_start_time": 180,
+            "latest_end_time": 270,
+            "duration": 32,
+            "power_consumption": 108.56,
+            "resource_usage": [
+                181,
+                272,
+                898
+            ]
+        },
+        {
+            "id": 49,
+            "earliest_start_time": 137,
+            "latest_end_time": 210,
+            "duration": 39,
+            "power_consumption": 544.27,
+            "resource_usage": [
+                1152,
+                1883,
+                2011
+            ]
+        }
+    ],
+    "energy_prices": [
+        0.04776,
+        0.04776,
+        0.04776,
+        0.04776,
+        0.04776,
+        0.04776,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.0487,
+        0.03478,
+        0.03478,
+        0.03478,
+        0.03478,
+        0.03478,
+        0.03478,
+        0.034,
+        0.034,
+        0.034,
+        0.034,
+        0.034,
+        0.034,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.0311,
+        0.0311,
+        0.0311,
+        0.0311,
+        0.0311,
+        0.0311,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03139,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03062,
+        0.03234,
+        0.03234,
+        0.03234,
+        0.03234,
+        0.03234,
+        0.03234,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.0357,
+        0.0357,
+        0.0357,
+        0.0357,
+        0.0357,
+        0.0357,
+        0.04249,
+        0.04249,
+        0.04249,
+        0.04249,
+        0.04249,
+        0.04249,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.07764,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.08213,
+        0.46599,
+        0.46599,
+        0.46599,
+        0.46599,
+        0.46599,
+        0.46599,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04753,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.04651,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.03466,
+        0.05098,
+        0.05098,
+        0.05098,
+        0.05098,
+        0.05098,
+        0.05098,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051,
+        0.051
+    ]
+}
