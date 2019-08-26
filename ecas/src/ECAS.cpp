@@ -4,14 +4,14 @@
 // Constructors & Destructors                                             ###
 // ##########################################################################
 
-ECAS::ECAS( ) : epInt( 0.0 ), epOpt( 0.0 ) {
-  this->initCPLEX();
+ECAS::ECAS( ) {
+  this->initCP();
   this->initModel();
 }
 
 ECAS::~ECAS() {
-	// free CPLEX resources
-	cplex.end();
+	// free CP resources
+	cp.end();
 	model.end();
 	env.end();
 }
@@ -20,8 +20,8 @@ ECAS::~ECAS() {
 // Private ethods                                                         ###
 // ##########################################################################
 
-void ECAS::initCPLEX() {
-	cout << "initialize CPLEX ... ";
+void ECAS::initCP() {
+	cout << "initialize CP ... ";
 	try {
 		env = IloEnv();
 		model = IloModel( env );
@@ -37,6 +37,8 @@ void ECAS::initCPLEX() {
 
 void ECAS::initModel() {
   cout << "initialize Model ... ";
+
+	//IloIntervalVarArray a (env, NbTasks);
 
   //TODO: Implement variables
   // initialize node variables
@@ -82,23 +84,15 @@ stats_t ECAS::solveModel(){
   stats_t stats;
   try {
 		// build model
-		cplex = IloCplex( model );
-		cplex.exportModel( "model.lp" );
-
-		// set parameters
-		epInt = cplex.getParam( IloCplex::EpInt );
-		epOpt = cplex.getParam( IloCplex::EpOpt );
-
-		// set number of threads
-		cplex.setParam( IloCplex::Threads, 8 );
+		cp = IloCP( model );
+		cp.exportModel( "model.lp" );
 
 		// solve model
-		cout << "Calling CPLEX solve ...\n";
-		cplex.solve();
-		cout << "CPLEX finished.\n\n";
-		cout << "CPLEX status: " << cplex.getStatus() << "\n";
-		cout << "Branch-and-Bound nodes: " << cplex.getNnodes() << "\n";
-		cout << "Objective value: " << cplex.getObjValue() << "\n";
+		cout << "Calling CP solve ...\n";
+		cp.solve();
+		cout << "CP finished.\n\n";
+		cout << "CP status: " << cp.getStatus() << "\n";
+		cout << "Objective value: " << cp.getObjValue() << "\n";
 		cout << "CPU time: " << Tools::CPUtime() << "\n\n";
 
 		// get variable values for edge decision variable x
@@ -107,8 +101,6 @@ stats_t ECAS::solveModel(){
 
     // return statistics
 		stats.cpu_time = Tools::CPUtime();
-		stats.bnb_nodes = cplex.getNnodes();
-
 	}
 	catch( IloException& e ) {
 		cerr << "ECAS: exception " << e.getMessage();

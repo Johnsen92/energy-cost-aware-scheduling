@@ -2,7 +2,7 @@
 HOSTNAME = $(shell hostname)
 USERNAME = $(shell whoami)
 
-EXEC = ./ecas -f data/g01.dat -m dcc -k 5
+PROGRAM = ecas
 
 DEBUG = 1
 
@@ -18,15 +18,16 @@ ARCH = x86-64
 GPP = g++
 
 CPPFLAGS = -DIL_STD \
-	-isystem $(CPLEX_DIR)/cplex/include \
+	-isystem $(CPLEX_DIR)/cpoptimizer/include \
 	-isystem $(CPLEX_DIR)/concert/include
 
 CXXFLAGS += -Wall -Wno-non-virtual-dtor -pipe -std=c++11
 
-LDFLAGS = -L$(CPLEX_DIR)/cplex/lib/$(ARCH)_linux/static_pic \
-	-L$(CPLEX_DIR)/concert/lib/$(ARCH)_linux/static_pic
+LDFLAGS = -L$(CPLEX_DIR)/cpoptimizer/lib/$(ARCH)_linux/static_pic \
+	-L$(CPLEX_DIR)/concert/lib/$(ARCH)_linux/static_pic \
+	-L$(CPLEX_DIR)/cplex/lib/$(ARCH)_linux/static_pic
 
-LDFLAGS += -lilocplex -lcplex -lconcert -lpthread -ldl
+LDFLAGS += -lilocplex -lcp -lcplex -lconcert -lpthread -ldl
 
 ifeq ($(DEBUG), 1)
   CXXFLAGS += -g -p
@@ -87,19 +88,16 @@ ecas: $(STARTUP_OBJ) $(OBJ_FILES)
 	@echo 
 	@echo "linking ..."
 	@echo
-	$(GPP) $(CPPFLAGS) $(CXXFLAGS) -o ecas $(OBJ_FILES) $(STARTUP_OBJ) $(LDFLAGS)
+	$(GPP) $(CPPFLAGS) $(CXXFLAGS) -o $(PROGRAM) $(OBJ_FILES) $(STARTUP_OBJ) $(LDFLAGS)
 
 
 # ----- debugging and profiling ----------------------------------------------------
 
-gdb: all
-	gdb --args $(EXEC)
-
 clean:
-	rm -rf obj/*.o kmst gmon.out
+	rm -rf obj/*.o $(PROGRAM) gmon.out
 
-run: ecas
-	./ecas
+run: $(PROGRAM)
+	./$(PROGRAM) ../data/sample01.json
 	
 # ------ include dependency file ---------------------------------------------------
 include depend.in

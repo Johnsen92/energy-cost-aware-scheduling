@@ -25,14 +25,21 @@ void usage(char *argv[]);
 // ##########################################################################
 
 int main(int argc, char *argv[]) {
-  // parameters
+  // parse arguments
   string infile;
   parse_args(argc, argv, infile);
 
+  // create problem instance from JSON file
   Instance i(infile);
+
+  // create CP Optimizer model
   /*ECAS *model = new ECAS();
+
+  // solve CP Optimizer model
   model->solveModel();
-	delete model;*/
+	
+  // delete CP Optimizer model
+  delete model;*/
 	return 0;
 } // main
 

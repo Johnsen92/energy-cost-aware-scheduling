@@ -1,7 +1,7 @@
 #ifndef __ECAS__H__
 #define __ECAS__H__
 
-#include <ilcplex/ilocplex.h>
+#include <ilcp/cp.h>
 #include "Tools.h"
 
 using namespace std;
@@ -19,7 +19,7 @@ private:
   // CPLEX Variables
 	IloEnv env;
 	IloModel model;
-	IloCplex cplex;
+	IloCP cp;
 
   IloNumVar x1;
   IloNumVar x2;
@@ -32,8 +32,7 @@ private:
 	IloNumArray values; // to store result values of x*/
 
   // Statistic Variables
-	double epInt, epOpt;
-  void initCPLEX();
+  void initCP();
   void initModel();
   
 public:
