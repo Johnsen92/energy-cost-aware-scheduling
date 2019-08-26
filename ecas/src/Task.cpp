@@ -7,7 +7,7 @@
 Task::Task() 
   : id(0), earliest_start_time(0), latest_end_time(0), duration(0), power_consumption(0.0), resource_usage() {}
 
-Task::Task(string json) {
+Task::Task(string json) : Task() {
   istringstream ss(json);
   string line;
   while(getline(ss, line)){

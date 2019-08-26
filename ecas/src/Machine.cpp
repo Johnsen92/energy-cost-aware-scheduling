@@ -6,7 +6,7 @@
 
 Machine::Machine() : id(0), idle_consumption(0), power_up_cost(0.0), power_down_cost(0.0), resource_capacities() {}
 
-Machine::Machine(string json) {
+Machine::Machine(string json) : Machine() {
   istringstream ss(json);
   string line;
   while(getline(ss, line)){

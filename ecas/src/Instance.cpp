@@ -7,7 +7,7 @@
 Instance::Instance() 
   : time_resolution(0), resources(0), machines(), tasks(), energy_prices() {}
 
-Instance::Instance(string filename) {
+Instance::Instance(string filename) : Instance() {
   cout << "Parsing instance ... ";
   string json_machine = "";
   string json_task = ""; 
