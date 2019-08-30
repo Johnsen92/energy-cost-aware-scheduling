@@ -33,13 +33,13 @@ int main(int argc, char *argv[]) {
   Instance i(infile);
 
   // create CP Optimizer model
-  /*ECAS *model = new ECAS();
+  ECAS *model = new ECAS(i);
 
   // solve CP Optimizer model
   model->solveModel();
 	
   // delete CP Optimizer model
-  delete model;*/
+  delete model;
 	return 0;
 } // main
 

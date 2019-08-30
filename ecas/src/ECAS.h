@@ -3,6 +3,7 @@
 
 #include <ilcp/cp.h>
 #include "Tools.h"
+#include "Instance.h"
 
 using namespace std;
 
@@ -21,22 +22,16 @@ private:
 	IloModel model;
 	IloCP cp;
 
-  IloNumVar x1;
-  IloNumVar x2;
-  IloNumVar x3;
+  IloIntervalVarArray tasks;
+  IloIntervalVarArray2 machines;
 
-  // Model Variables
-  /*IloBoolVarArray x; // edge selection variables
-	IloBoolVarArray z; // node section variables
-	IloBoolVarArray y; // arc selection variables
-	IloNumArray values; // to store result values of x*/
 
   // Statistic Variables
   void initCP();
-  void initModel();
+  void initModel(Instance instance);
   
 public:
-	ECAS();
+	ECAS(Instance instance);
 	~ECAS();
   
 	stats_t solveModel();

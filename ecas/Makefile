@@ -97,7 +97,7 @@ clean:
 	rm -rf obj/*.o $(PROGRAM) gmon.out
 
 run: $(PROGRAM)
-	./$(PROGRAM) ../data/sample01.json
+	./$(PROGRAM) ./data/sample01.json
 	
 # ------ include dependency file ---------------------------------------------------
 include depend.in

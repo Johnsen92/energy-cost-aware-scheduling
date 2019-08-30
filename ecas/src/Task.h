@@ -2,11 +2,13 @@
 #define __TASK__H__
 
 #include "Tools.h"
+#include <string>
 
 using namespace::std;
 
 class Task {
   public:
+    string name;
     int id;
     int earliest_start_time;
     int latest_end_time;
