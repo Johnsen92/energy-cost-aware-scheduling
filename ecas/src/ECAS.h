@@ -15,6 +15,11 @@ typedef struct
   u_int bnb_nodes;
 } stats_t;
 
+enum {
+  MACHINE_OFF   = 0,
+  MACHINE_ON    = 1
+};
+
 class ECAS {
 private:
   // CPLEX Variables
