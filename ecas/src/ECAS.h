@@ -27,10 +27,6 @@ private:
 	IloModel model;
 	IloCP cp;
 
-  IloIntervalVarArray tasks;
-  IloIntervalVarArray2 machines;
-
-
   // Statistic Variables
   void initCP();
   void initModel(Instance instance);

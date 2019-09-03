@@ -5,8 +5,6 @@
 // ##########################################################################
 
 ECAS::ECAS(Instance instance) {
-	this->tasks = IloIntervalVarArray(env, instance.tasks.size());
-	this->machines = IloIntervalVarArray2(env, instance.machines.size());
   this->initCP();
   this->initModel(instance);
 }
@@ -43,6 +41,12 @@ void ECAS::initModel(Instance instance) {
 	int time_slots = 24*60/instance.time_resolution;
 	int nMach = instance.machines.size();
 	int nTasks = instance.tasks.size();
+	int nTaskFragments = 0;
+
+	// Calculate number of task fragments
+	for(Task t: instance.tasks){
+		nTaskFragments += t.duration;
+	}
 
 	IloIntExprArray ends(env);
 	IloNumExpr energy_costs(env);
@@ -54,35 +58,36 @@ void ECAS::initModel(Instance instance) {
 	}
 
 	// Tasks
+	IloIntervalVarArray tasks(env, nTaskFragments);
+	int c = 0;
 	for(Task t:instance.tasks){
-		tasks[t.id] = IloIntervalVar(env, t.duration, t.name.c_str());
-		tasks[t.id].setStartMin(t.earliest_start_time);
-		tasks[t.id].setEndMax(t.latest_end_time);
-		ends.add(IloEndOf(tasks[t.id]));
-		energy_costs += IloStartEval(tasks[t.id], energy_prices, 0)*t.duration*t.power_consumption/2;
-		energy_costs += IloEndEval(tasks[t.id], energy_prices, 0)*t.duration*t.power_consumption/2;
+		for(int i=0; i<t.duration; i++){
+			tasks[c] = IloIntervalVar(env, 1);
+			tasks[c].setStartMin(t.earliest_start_time + i);
+			tasks[c].setEndMax(t.latest_end_time - t.duration + i + 1);
+			if(i != 0)
+				model.add(IloStartAtEnd(env, tasks[c], tasks[c-1], 0));
+			//ends.add(IloEndOf(tasks[c+i]));
+			energy_costs += IloStartEval(tasks[c], energy_prices, 0)*t.duration*t.power_consumption;
+			c++;
+		}
 	}
 
 	// Task to Machine matching
-	IloIntervalVarArray2 taskOnMachine(env, nTasks);
+	IloIntervalVarArray2 taskOnMachine(env, nTaskFragments);
+	c = 0;
 	for(Task t:instance.tasks){
-		taskOnMachine[t.id] = IloIntervalVarArray(env, nMach);
-		for(Machine m:instance.machines) {
-			taskOnMachine[t.id][m.id] = IloIntervalVar(env, t.duration, t.name.c_str());
-			taskOnMachine[t.id][m.id].setOptional();
+		for(int i=0; i<t.duration; i++){
+			taskOnMachine[c] = IloIntervalVarArray(env, nMach);
+			for(Machine m:instance.machines) {
+				taskOnMachine[c][m.id] = IloIntervalVar(env, 1);
+				taskOnMachine[c][m.id].setOptional();
+			}
+			//model.add(IloAlternative(env, tasks[c], taskOnMachine[c]));
+			c++;
 		}
-		model.add(IloAlternative(env, tasks[t.id], taskOnMachine[t.id]));
+		model.add(IloAlternative(env, tasks[c-t.duration], taskOnMachine[c-t.duration]));
 	}
-
-	// Machine on constraints
-	/*IloIntervalVarArray2 machineIsOn(env, nMach);
-	for(Machine m:instance.machines){
-		machineIsOn[m.id] = IloIntervalVarArray(env, time_slots);
-		for(int i=0; i<time_slots; i++){
-			machineIsOn[m.id][i] = IloIntervalVar(env, 1);
-			machineIsOn[m.id][i].setOptional();
-		}
-	}*/
 
 	// Machine state constraint
 	IloStateFunctionArray machineStateFunctions(env, nMach);
@@ -96,10 +101,16 @@ void ECAS::initModel(Instance instance) {
 	// Machine to Task matching
 	IloIntervalVarArray2 machineHasTask(env, nMach);
 	for(Machine m:instance.machines){
-		machineHasTask[m.id] = IloIntervalVarArray(env, nTasks);
+		c = 0;
+		machineHasTask[m.id] = IloIntervalVarArray(env, nTaskFragments);
 		for(Task t:instance.tasks){
-			machineHasTask[m.id][t.id] = taskOnMachine[t.id][m.id];
-			model.add(IloAlwaysIn(env, machineStateFunctions[m.id], machineHasTask[m.id][t.id], MACHINE_ON, MACHINE_ON));
+			for(int i=0; i<t.duration; i++){
+				machineHasTask[m.id][c] = taskOnMachine[c][m.id];
+				if(i != 0)
+					model.add(IloIfThen(env, IloPresenceOf(env, machineHasTask[m.id][c-1]), IloPresenceOf(env, machineHasTask[m.id][c])));
+				model.add(IloAlwaysIn(env, machineStateFunctions[m.id], machineHasTask[m.id][c], MACHINE_ON, MACHINE_ON));
+				c++;
+			}
 		}
 	}
 
@@ -111,10 +122,14 @@ void ECAS::initModel(Instance instance) {
 		machine_cpu_res[m.id] = IloCumulFunctionExpr(env);
 		machine_mem_res[m.id] = IloCumulFunctionExpr(env);
 		machine_io_res[m.id] = IloCumulFunctionExpr(env);
+		c = 0;
 		for(Task t: instance.tasks){
-			machine_cpu_res[m.id] += IloPulse(machineHasTask[m.id][t.id],t.cpu_usage());
-			machine_mem_res[m.id] += IloPulse(machineHasTask[m.id][t.id],t.memory_usage());
-			machine_io_res[m.id] += IloPulse(machineHasTask[m.id][t.id],t.io_usage());
+			for(int i = 0; i<t.duration; i++){
+				machine_cpu_res[m.id] += IloPulse(machineHasTask[m.id][c],t.cpu_usage());
+				machine_mem_res[m.id] += IloPulse(machineHasTask[m.id][c],t.memory_usage());
+				machine_io_res[m.id] += IloPulse(machineHasTask[m.id][c],t.io_usage());
+				c++;
+			}
 		}
 		model.add(machine_cpu_res[m.id] <= m.cpu_cap());
 		model.add(machine_mem_res[m.id] <= m.memory_cap());
