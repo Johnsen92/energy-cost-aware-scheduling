@@ -68,7 +68,7 @@ void ECAS::initModel(Instance instance) {
 			if(i != 0)
 				model.add(IloStartAtEnd(env, tasks[c], tasks[c-1], 0));
 			//ends.add(IloEndOf(tasks[c+i]));
-			energy_costs += IloStartEval(tasks[c], energy_prices, 0)*t.duration*t.power_consumption;
+			energy_costs += IloStartEval(tasks[c], energy_prices, 0)*t.power_consumption;
 			c++;
 		}
 	}
