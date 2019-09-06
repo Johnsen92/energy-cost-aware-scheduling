@@ -1,0 +1,13 @@
+\section{Introduction}
+
+I chose to use IBM CP Optimizer with a C++ environment to solve the assignment. It took mi some time 
+to set up the makefile and get all the linkerflags right to compile the project, but I got there. I wrote
+a parser for the JSON data files (I had to run a JSON-Formatter on them to get the linebreaks right) and a C++ representation for the data in the form of three classes included in the project: 
+
+\begin{itemize}
+	\item Machine - Representation of a \textit{machine} in the JSON files
+	\item Task - Representation of a \textit{task} in the JSON files
+	\item Instance - Complete representation of the problem instance
+\end{itemize}
+
+This way, I could easily access the data when writing the code for the model. I added the class \textit{ECAS} (Energy-Cost Aware Scheduling) inheriting the \textit{initCP} class to function as the core piece of the model. In the method \textit{initModel} the model for the assignment is defined which I will elaborate in the next chapter.

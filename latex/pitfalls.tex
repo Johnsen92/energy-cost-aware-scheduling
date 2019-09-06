@@ -1,0 +1,5 @@
+\section{Pitfalls}
+
+One pitfall in which i fell into was the assumption that the power state of the machines has to be modeled with \textit{IloStateFunctions}. This seemed natural in my head (power state $=>$ state function) so this was the first method I tried. I kept skimming through the CP Optimizer documentation and code examples trying to find a way of including an \textit{IloStateFunction} in the objective function but did not find one in the end. I lost a lot of time on that one. \newline
+
+Another one was the assumption that I could use an ordinary C++ \textit{double} array in the objective function which of course, did not work. I only found out today that I had to convert it to an \textit{IloNumArray} so it can be used in the objective function. Before today I thought it was not possible to use an array in the objective function.

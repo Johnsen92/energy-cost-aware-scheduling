@@ -40,30 +40,37 @@ void ECAS::initCP() {
 void ECAS::initModel(Instance instance) {
   cout << "initialize Model ... ";
 
-	int time_slots = 24*60/instance.time_resolution;
-	int nMach = instance.machines.size();
-	int nTasks = instance.tasks.size();
+	// Constants for model parameters
+	const int time_slots = 24*60/instance.time_resolution;
+	const int nMach = instance.machines.size();
+	const int nTasks = instance.tasks.size();
 
-	IloIntExprArray ends(env);
-	IloNumExpr energy_costs(env);
+
+	// Objective function expression
+	IloNumExpr energyCosts(env);
+	IloNumArray energyPricesArray(env);
 
 	// Stepwise linear function for energy prices
-	IloNumToNumStepFunction energy_prices(env);
+	IloNumToNumStepFunction energyPrices(env);
 	for(int i=0; i<time_slots; i++){
-		energy_prices.setValue(i,i+1,instance.energy_prices[i]);
+		energyPrices.setValue(i,i+1,instance.energy_prices[i]);
+		energyPricesArray.add(instance.energy_prices[i]);
 	}
 
-	// Tasks
+	// Initialize task intervals with min start time and max end time
 	for(Task t:instance.tasks){
 		tasks[t.id] = IloIntervalVar(env, t.duration, t.name.c_str());
 		tasks[t.id].setStartMin(t.earliest_start_time);
 		tasks[t.id].setEndMax(t.latest_end_time);
-		ends.add(IloEndOf(tasks[t.id]));
-		energy_costs += IloStartEval(tasks[t.id], energy_prices, 0)*t.duration*t.power_consumption/2;
-		energy_costs += IloEndEval(tasks[t.id], energy_prices, 0)*t.duration*t.power_consumption/2;
+
+		// Add energy costs of tasks to objective function
+		for(int i=0; i<t.duration; i++){
+			energyCosts += energyPricesArray[IloStartOf(tasks[t.id]) + i]*t.power_consumption;
+		}
+			
 	}
 
-	// Task to Machine matching
+	// Task to machine matching
 	IloIntervalVarArray2 taskOnMachine(env, nTasks);
 	for(Task t:instance.tasks){
 		taskOnMachine[t.id] = IloIntervalVarArray(env, nMach);
@@ -74,55 +81,65 @@ void ECAS::initModel(Instance instance) {
 		model.add(IloAlternative(env, tasks[t.id], taskOnMachine[t.id]));
 	}
 
-	// Machine on constraints
-	/*IloIntervalVarArray2 machineIsOn(env, nMach);
-	for(Machine m:instance.machines){
-		machineIsOn[m.id] = IloIntervalVarArray(env, time_slots);
-		for(int i=0; i<time_slots; i++){
-			machineIsOn[m.id][i] = IloIntervalVar(env, 1);
-			machineIsOn[m.id][i].setOptional();
-		}
-	}*/
-
-	// Machine state constraint
-	IloStateFunctionArray machineStateFunctions(env, nMach);
-	for(Machine m: instance.machines){
-		string name = "Machine_state_" + m.id;
-		machineStateFunctions[m.id] = IloStateFunction(env, name.c_str());
-		model.add(IloAlwaysEqual(env, machineStateFunctions[m.id], 0, 0, MACHINE_OFF, true, true));
-		model.add(IloAlwaysEqual(env, machineStateFunctions[m.id], time_slots, time_slots, MACHINE_OFF, true, true));
-	}
-
 	// Machine to Task matching
 	IloIntervalVarArray2 machineHasTask(env, nMach);
 	for(Machine m:instance.machines){
 		machineHasTask[m.id] = IloIntervalVarArray(env, nTasks);
 		for(Task t:instance.tasks){
 			machineHasTask[m.id][t.id] = taskOnMachine[t.id][m.id];
-			model.add(IloAlwaysIn(env, machineStateFunctions[m.id], machineHasTask[m.id][t.id], MACHINE_ON, MACHINE_ON));
 		}
 	}
 
 	// Add resource constraints
-	IloCumulFunctionExprArray machine_cpu_res(env, nMach);
-	IloCumulFunctionExprArray machine_mem_res(env, nMach);
-	IloCumulFunctionExprArray machine_io_res(env, nMach);
+	IloCumulFunctionExprArray machineCPURes(env, nMach);
+	IloCumulFunctionExprArray machineMemRes(env, nMach);
+	IloCumulFunctionExprArray machineIORes(env, nMach);
 	for(Machine m: instance.machines){
-		machine_cpu_res[m.id] = IloCumulFunctionExpr(env);
-		machine_mem_res[m.id] = IloCumulFunctionExpr(env);
-		machine_io_res[m.id] = IloCumulFunctionExpr(env);
+		machineCPURes[m.id] = IloCumulFunctionExpr(env);
+		machineMemRes[m.id] = IloCumulFunctionExpr(env);
+		machineIORes[m.id] = IloCumulFunctionExpr(env);
 		for(Task t: instance.tasks){
-			machine_cpu_res[m.id] += IloPulse(machineHasTask[m.id][t.id],t.cpu_usage());
-			machine_mem_res[m.id] += IloPulse(machineHasTask[m.id][t.id],t.memory_usage());
-			machine_io_res[m.id] += IloPulse(machineHasTask[m.id][t.id],t.io_usage());
+			machineCPURes[m.id] += IloPulse(machineHasTask[m.id][t.id],t.cpu_usage());
+			machineMemRes[m.id] += IloPulse(machineHasTask[m.id][t.id],t.memory_usage());
+			machineIORes[m.id] += IloPulse(machineHasTask[m.id][t.id],t.io_usage());
 		}
-		model.add(machine_cpu_res[m.id] <= m.cpu_cap());
-		model.add(machine_mem_res[m.id] <= m.memory_cap());
-		model.add(machine_io_res[m.id] <= m.io_cap());
+		model.add(machineCPURes[m.id] <= m.cpu_cap());
+		model.add(machineMemRes[m.id] <= m.memory_cap());
+		model.add(machineIORes[m.id] <= m.io_cap());
 	}
 
-  // add objective function to model
-	IloObjective objective = IloMinimize(env, energy_costs);
+	// Add machinePowerOn cumul function and constraints
+	IloCumulFunctionExprArray machinePowerOn(env, nMach);
+	IloIntervalVarArray2 machinePowerOnIntervals(env, nMach);
+	for(Machine m: instance.machines){
+		machinePowerOn[m.id] = IloCumulFunctionExpr(env);
+		machinePowerOnIntervals[m.id] = IloIntervalVarArray(env, nTasks + 1);
+		for(int i=0; i<nTasks + 1; i++){
+			machinePowerOnIntervals[m.id][i] = IloIntervalVar(env);
+			machinePowerOnIntervals[m.id][i].setOptional();
+			machinePowerOnIntervals[m.id][i].setSizeMin(0);
+			machinePowerOnIntervals[m.id][i].setSizeMax(288);
+		}
+		for(int i=0; i<nTasks + 1; i++){
+			if(i != 0){
+				model.add(IloIfThen(env, IloPresenceOf(env, machinePowerOnIntervals[m.id][i]), IloPresenceOf(env, machinePowerOnIntervals[m.id][i-1])));
+				model.add(IloEndBeforeStart(env, machinePowerOnIntervals[m.id][i-1], machinePowerOnIntervals[m.id][i], 1));
+			}
+			machinePowerOn[m.id] += IloPulse(machinePowerOnIntervals[m.id][i],1);
+
+			// Add the machine idle consumption and power up/down costs to objective function
+			energyCosts += IloStartEval(machinePowerOnIntervals[m.id][i], energyPrices, 0)*IloSizeOf(machinePowerOnIntervals[m.id][i])*m.idle_consumption/2;
+			energyCosts += IloEndEval(machinePowerOnIntervals[m.id][i], energyPrices, 0)*IloSizeOf(machinePowerOnIntervals[m.id][i])*m.idle_consumption/2;
+			energyCosts += IloPresenceOf(env, machinePowerOnIntervals[m.id][i])*(m.power_up_cost + m.power_down_cost);
+		}
+		for(Task t: instance.tasks){
+			model.add(IloAlwaysIn(env, machinePowerOn[m.id], machineHasTask[m.id][t.id], 1, 1));
+		}
+	}
+
+
+  // Add objective function to model
+	IloObjective objective = IloMinimize(env, energyCosts);
   model.add(objective);
 
   cout << "done.\n";
