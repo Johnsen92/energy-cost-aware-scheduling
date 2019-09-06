@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.20)  6 SEP 2019 17:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.20)  6 SEP 2019 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -545,7 +545,7 @@ age.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.14 	\item \textit
-                   {IloCumulFunctionExprArray} machine\_cpu\_res [1
+                   {IloCumulFunctionExprArray} machineCPURes [1
 
 ]
 ! You can't use `macro parameter character #' in horizontal mode.
@@ -556,68 +556,9 @@ I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
-
-Underfull \hbox (badness 3118) in paragraph at lines 43--44
-\OT1/cmr/m/n/10 The in-ter-vals de-fined in this ma-trix rep-re-sent the time i
-n which a
- []
-
-
-Underfull \hbox (badness 2680) in paragraph at lines 43--44
-\OT1/cmr/m/n/10 ma-chine is run-ning. There are Tasks + 1 such in-ter-vals per 
-ma-
- []
-
-
-Underfull \hbox (badness 2894) in paragraph at lines 43--44
-\OT1/cmr/m/n/10 chine. They are de-fined as op-tional and with no pre-set du-ra
--tion.
- []
-
-
-Underfull \hbox (badness 3492) in paragraph at lines 43--44
-\OT1/cmr/m/n/10 They are con-strained by the fact that in each row of the ma-tr
-ix
- []
-
-
-Underfull \hbox (badness 1418) in paragraph at lines 43--44
-\OT1/cmr/m/it/10 ma-chine[]power[]on[]intervals[i][j]\OT1/cmr/m/n/10 , \OT1/cmr
-/m/it/10 ma-chine[]power[]on[]intervals[i-1][j] \OT1/cmr/m/n/10 must be
- []
-
 [2]
-Underfull \hbox (badness 3029) in paragraph at lines 47--49
-\OT1/cmr/m/n/10 This cu-mu-la-tive func-tion is the sum of pulses of the in-ter
--vals \OT1/cmr/m/it/10 ma-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
-\OT1/cmr/m/it/10 chine[]power[]on[]intervals \OT1/cmr/m/n/10 with height 1. Thi
-s cu-mu-la-tive func-tion
- []
-
-
-Underfull \hbox (badness 3019) in paragraph at lines 47--49
-\OT1/cmr/m/n/10 binds the pres-ence of one or more \OT1/cmr/m/it/10 ma-chine-Ha
-s-Task \OT1/cmr/m/n/10 in-ter-vals and a
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 47--49
-\OT1/cmr/m/it/10 ma-chine[]power[]on[]intervals \OT1/cmr/m/n/10 to-gether when 
-the \OT1/cmr/m/it/10 IloAl-waysIn(env, ma-
- []
-
-
-Underfull \hbox (badness 6078) in paragraph at lines 47--49
-\OT1/cmr/m/it/10 chine[]power[]on[m.id], ma-chine-Has-Task[m.id][t.id], 1, 1) \
-OT1/cmr/m/n/10 con-strained is
- []
-
 LaTeX Font Info:    Try loading font information for U+msa on input line 56.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 56.
@@ -625,12 +566,11 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 56.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )) (./pitfalls.tex
-[3]
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
 
-) [4]
+[3]) [4]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 32.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 32.
  (build/main.aux)
@@ -660,7 +600,7 @@ blic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ti12.pfb>
-Output written on build/main.pdf (5 pages, 202545 bytes).
+Output written on build/main.pdf (5 pages, 202275 bytes).
 PDF statistics:
  134 PDF objects out of 1000 (max. 8388607)
  112 compressed objects within 2 object streams

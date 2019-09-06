@@ -11,13 +11,13 @@ The core piece of my model are the following and will be explained in detail lat
 	\item \textit{IloIntervalVarArray} tasks
 	\item \textit{IloIntervalVarArray2} taskOnMachine
 	\item \textit{IloIntervalVarArray2} machineHasTask
-	\item \textit{IloCumulFunctionExprArray} machine\_cpu\_res
-	\item \textit{IloCumulFunctionExprArray} machine\_mem\_res
-	\item \textit{IloCumulFunctionExprArray} machine\_io\_res
-	\item \textit{IloIntervalVarArray2} machine\_power\_on\_intervals
-	\item \textit{IloCumulFunctionExprArray} machine\_power\_on
-	\item \textit{IloNumToNumStepFunction} energy\_prices
-	\item \textit{IloNumExpr} energy\_costs
+	\item \textit{IloCumulFunctionExprArray} machineCPURes
+	\item \textit{IloCumulFunctionExprArray} machineMemRes
+	\item \textit{IloCumulFunctionExprArray} machineIORes
+	\item \textit{IloIntervalVarArray2} machinePowerOnIntervals
+	\item \textit{IloCumulFunctionExprArray} machinePowerOn
+	\item \textit{IloNumToNumStepFunction} energyPrices
+	\item \textit{IloNumExpr} energyCosts
 \end{itemize}
 
 \subsubsection{\textit{IloIntervalVarArray} tasks}
@@ -34,26 +34,26 @@ With the function \textit{Alternative} the tasks defined in the previous array a
 
 The transposed \textit{taskOnMachine} matrix. This representation is often more convenient to loop over but is not inherently necessary. 
 
-\subsubsection{\textit{IloCumulFunctionExprArray} machine\_cpu\_res}
+\subsubsection{\textit{IloCumulFunctionExprArray} machineCPURes}
 
-The cumulative functions defined in this array are summing up the resources needed by tasks running on the corresponding machine. They are used in combination with the constraint \textit{machine\_cpu\_res[m.id] <= m.cpu\_cap()} to ensure that the resources needed by the tasks running on a machine remain lower than the capacity of the machine. The same applies for the cumulative functions \textit{machine\_mem\_res} and \textit{machine\_io\_res}.
+The cumulative functions defined in this array are summing up the resources needed by tasks running on the corresponding machine. They are used in combination with the constraint \textit{machineCPURes[m.id] <= m.cpu\_cap()} to ensure that the resources needed by the tasks running on a machine remain lower than the capacity of the machine. The same applies for the cumulative functions \textit{machineMemRes} and \textit{machineIORes}.
 
-\subsubsection{\textit{IloIntervalVarArray2} machine\_power\_on\_intervals}
+\subsubsection{\textit{IloIntervalVarArray2} machinePowerOnIntervals}
 
-The intervals defined in this matrix represent the time in which a machine is running. There are #Tasks + 1 such intervals per machine. They are defined as optional and with no preset duration. They are constrained by the fact that in each row of the matrix \textit{machine\_power\_on\_intervals[i][j]}, \textit{machine\_power\_on\_intervals[i-1][j]} must be present for \textit{machine\_power\_on\_intervals[i][j]} to be present (except for i=0 of course) and that \textit{machine\_power\_on\_intervals[i-1][j]} must have ended before \textit{machine\_power\_on\_intervals[i][j]} can start (and there has to be 1 time-tick in between). This method of chained optional intervals is also discussed in the CP Optimizer tutorial (Introduction to CP Optimizer for Scheduling) on slide 109.
+The intervals defined in this matrix represent the time in which a machine is running. There are #Tasks + 1 such intervals per machine. They are defined as optional and with no preset duration. They are constrained by the fact that in each row of the matrix \textit{machinePowerOnIntervals[i][j]}, \textit{machinePowerOnIntervals[i-1][j]} must be present for \textit{machinePowerOnIntervals[i][j]} to be present (except for i=0 of course) and that \textit{machinePowerOnIntervals[i-1][j]} must have ended before \textit{machinePowerOnIntervals[i][j]} can start (and there has to be 1 time-tick in between). This method of chained optional intervals is also discussed in the CP Optimizer tutorial (Introduction to CP Optimizer for Scheduling) on slide 109.
 
-\subsubsection{\textit{IloCumulFunctionExprArray} machine\_power\_on}
+\subsubsection{\textit{IloCumulFunctionExprArray} machinePowerOn}
 
-This cumulative function is the sum of pulses of the intervals \textit{machine\_power\_on\_intervals} with height 1.
-This cumulative function binds the presence of one or more \textit{machineHasTask} intervals and a \textit{machine\_power\_on\_intervals} together when the \textit{IloAlwaysIn(env, machine\_power\_on[m.id], machineHasTask[m.id][t.id], 1, 1)} constrained is applied. This forces a machine\_power\_on\_interval to be present if a machine is assigned a task at that time. 
+This cumulative function is the sum of pulses of the intervals \textit{machinePowerOnIntervals} with height 1.
+This cumulative function binds the presence of one or more \textit{machineHasTask} intervals and a \textit{machinePowerOnIntervals} together when the \textit{IloAlwaysIn(env, machinePowerOn[m.id], machineHasTask[m.id][t.id], 1, 1)} constrained is applied. This forces a machinePowerOnInterval to be present if a machine is assigned a task at that time. 
 
-\subsubsection{\textit{IloNumToNumStepFunction} energy\_prices}
+\subsubsection{\textit{IloNumToNumStepFunction} energyPrices}
 
-The piece-wise linear function \textit{energy\_prices} is the time dependent representation of the evolving energy prices as defined in the JSON data file.
+The piece-wise linear function \textit{energyPrices} is the time dependent representation of the evolving energy prices as defined in the JSON data file.
 
 
-\subsubsection{\textit{IloNumExpr} energy\_costs}
-This numerical expression is used as the optimization function for the solver. It adds up energy expenses from tasks and machines as defined the project assignment. For tasks it includes the exact energy costs for executing it. For machines I did not figure out how to include an exact calculation of the idle energy consumption as the duration of the \textit{machine\_power\_on\_intervals} is not known at compile time so I could not apply the same method as for the tasks. The calculation I use as an approximation evaluates both start and end time of \textit{machine\_power\_on\_intervals} using the \textit{StartEval} and \textit{EndEval} functions provided by the framework. I calculated the estimated energy costs by adding the energy prices $E(t)$ at the start and end of the intervals $a_i$ multiplied by the size $size(a_i)$ of the interval and multiplied by the power consumption $C(a_i)$ of the interval divided by 2 to get an average between the price at the start and the end of the interval:
+\subsubsection{\textit{IloNumExpr} energyCosts}
+This numerical expression is used as the optimization function for the solver. It adds up energy expenses from tasks and machines as defined the project assignment. For tasks it includes the exact energy costs for executing it. For machines I did not figure out how to include an exact calculation of the idle energy consumption as the duration of the \textit{machinePowerOnIntervals} is not known at compile time so I could not apply the same method as for the tasks. The calculation I use as an approximation evaluates both start and end time of \textit{machinePowerOnIntervals} using the \textit{StartEval} and \textit{EndEval} functions provided by the framework. I calculated the estimated energy costs by adding the energy prices $E(t)$ at the start and end of the intervals $a_i$ multiplied by the size $size(a_i)$ of the interval and multiplied by the power consumption $C(a_i)$ of the interval divided by 2 to get an average between the price at the start and the end of the interval:
 
 \[ \sum_i{\frac{(E(startOf(a_i)) - E(endOf(a_i)))*size(a_i)*C(a_i)}{2}} \]
 
