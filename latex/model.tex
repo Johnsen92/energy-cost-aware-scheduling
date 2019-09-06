@@ -1,11 +1,11 @@
 \section{Model}
 
 I had some trouble setting up the model as I was not familiar withe the framework at all and it is not really the most intuitive one. I ran into more than one odyssey while doing so but this is the final result. I am fairly sure that the model is correct, but I didn't get it to terminate once. This might be due to the slow hardware I am using 
-or the lack of optimizing constraints which I did not have time to implement.
+or the lack of optimizing constraints for which I unfortunately did not have enough time.
 
 \subsection{Structure}
 
-The core piece of my model are the following and will be explained in detail later on:
+The core pieces of my model are the following data structures and which will be explained in detail in the following subsections:
 
 \begin{itemize}
 	\item \textit{IloIntervalVarArray} tasks
@@ -36,11 +36,11 @@ The transposed \textit{taskOnMachine} matrix. This representation is often more 
 
 \subsubsection{\textit{IloCumulFunctionExprArray} machineCPURes}
 
-The cumulative functions defined in this array are summing up the resources needed by tasks running on the corresponding machine. They are used in combination with the constraint \textit{machineCPURes[m.id] <= m.cpu\_cap()} to ensure that the resources needed by the tasks running on a machine remain lower than the capacity of the machine. The same applies for the cumulative functions \textit{machineMemRes} and \textit{machineIORes}.
+The cumulative functions defined in this array are summing up the resources needed by tasks running on the corresponding machine. They are used in combination with the constraint \textit{machineCPURes[machine.id] $<=$ machine.cpu\_capacity()} to ensure that the resources needed by the tasks running on a machine remain lower than the capacity of the machine. The same applies for the cumulative functions \textit{machineMemRes} and \textit{machineIORes}.
 
 \subsubsection{\textit{IloIntervalVarArray2} machinePowerOnIntervals}
 
-The intervals defined in this matrix represent the time in which a machine is running. There are #Tasks + 1 such intervals per machine. They are defined as optional and with no preset duration. They are constrained by the fact that in each row of the matrix \textit{machinePowerOnIntervals[i][j]}, \textit{machinePowerOnIntervals[i-1][j]} must be present for \textit{machinePowerOnIntervals[i][j]} to be present (except for i=0 of course) and that \textit{machinePowerOnIntervals[i-1][j]} must have ended before \textit{machinePowerOnIntervals[i][j]} can start (and there has to be 1 time-tick in between). This method of chained optional intervals is also discussed in the CP Optimizer tutorial (Introduction to CP Optimizer for Scheduling) on slide 109.
+The intervals defined in this matrix represent the time in which a machine is running. There are #Tasks + 1 such intervals per machine (I still don't know why #Tasks + 1 are needed and not just #Tasks for the model to be feasible. Fixing this did cost me a day). They are defined as optional and with no preset duration. They are constrained by the fact that in each row of the matrix \textit{machinePowerOnIntervals[i][j]}, \textit{machinePowerOnIntervals[i-1][j]} must be present for \textit{machinePowerOnIntervals[i][j]} to be present (except for i=0 of course) and that \textit{machinePowerOnIntervals[i-1][j]} must have ended before \textit{machinePowerOnIntervals[i][j]} can start (and there has to be 1 time-tick in between). This method of chained optional intervals is also discussed in the CP Optimizer tutorial (Introduction to CP Optimizer for Scheduling) on slide 109.
 
 \subsubsection{\textit{IloCumulFunctionExprArray} machinePowerOn}
 
